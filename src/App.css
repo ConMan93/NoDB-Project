@@ -30,3 +30,26 @@
     transform: rotate(360deg);
   }
 }
+
+.background {
+  background-image: url('https://images.ctfassets.net/rporu91m20dc/3UQ79DPixyYCMmE6QgmGI2/2e62109f84f523e07410123d2c4da401/TESLegends_boxart-template-1200x1476.jpg');
+  height:100vh;
+  background-size: cover;
+  overflow: auto;
+}
+
+h1 {
+  color: white;
+  font-size: 48px;
+}
+
+.card-list {
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 600px;
+  width: 95%;
+  background-color: lightgrey;
+  margin-left: 35px;
+}
