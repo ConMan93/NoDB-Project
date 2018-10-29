@@ -1,4 +1,4 @@
-const deck = [];
+let deck = [];
 let deckName = '';
 let id = 0;
 
@@ -41,6 +41,25 @@ module.exports = {
     },
 
     updateDeckName(req, res) {
-        
+        let { deckName } = req.body
+        deckName = deckName
+        res.status(200).send(deckName)
+    },
+
+    getQuery(req, res) {
+        let result = deck 
+        if (req.query.name) {
+            result = result.filter( card => {
+                // return card.name.toLowerCase() === req.query.name.toLowerCase()
+                return card.name.toLowerCase().includes(req.query.name.toLowerCase())
+            })
+        }
+        res.status(200).send(result);
+    },
+
+    resetDeck(req, res) {
+    
+        deck = []
+        res.status(200).send(deck)
     }
 }

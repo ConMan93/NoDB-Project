@@ -14,9 +14,12 @@ class App extends Component {
     super();
 
     this.state = {
-      myDeck: []
+      myDeck: [],
+      userInput: ''
     }
     this.addCardToDeck = this.addCardToDeck.bind(this)
+    this.handleQuery = this.handleQuery.bind(this)
+    this.resetDeck = this.resetDeck.bind(this)
   }
 
   addCardToDeck (card) {
@@ -37,6 +40,29 @@ class App extends Component {
       })
     })
 
+  }
+
+  handleQuery() {
+    axios.get(`/api/deck?name=${this.state.userInput}`).then( res => {
+      this.setState({
+        myDeck: res.data,
+        userInput: ''
+      })
+    })
+  }
+
+  handleChange(input) {
+    this.setState({
+      userInput: input
+    })
+  }
+
+  resetDeck() {
+    axios.delete('/api/deck').then( res => {
+      this.setState({
+        myDeck: res.data
+      })
+    })
   }
 
   componentDidMount() {
@@ -67,18 +93,23 @@ class App extends Component {
 
         <h1> Cards List </h1>
 
-        
         <GetCards 
         addCardFn={this.addCardToDeck} />
         
 
-        <h1> My Deck </h1>
         <DeckName />
         
+        <input value={this.state.userInput} onChange={e => this.handleChange(e.target.value)} placeholder='Search your deck' />
+        <button onClick={() => this.handleQuery(this.state.userInput)}> Search </button>
+  
         <div className='card-list'>
         {deckToDisplay}
         </div>
-  
+
+         <div>
+            <button onClick={() => this.resetDeck(this.state.myDeck)}> Reset Deck </button>
+        </div>
+
       </div>
       </div>
     );

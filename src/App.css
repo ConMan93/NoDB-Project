@@ -32,24 +32,78 @@
 }
 
 .background {
-  background-image: url('https://images.ctfassets.net/rporu91m20dc/3UQ79DPixyYCMmE6QgmGI2/2e62109f84f523e07410123d2c4da401/TESLegends_boxart-template-1200x1476.jpg');
+  background-image: url('https://teamrankstar.com/wp-content/uploads/2018/07/teslegends-hi-res-banner.jpg');
   height:100vh;
+  background-position: center;
   background-size: cover;
   overflow: auto;
 }
 
 h1 {
-  color: white;
+  color: gold;
   font-size: 48px;
+  font-family: Luminari, fantasy;
+  font-weight: bolder;
 }
 
 .card-list {
-  overflow: scroll;
+  overflow: auto;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   height: 600px;
   width: 95%;
-  background-color: lightgrey;
-  margin-left: 35px;
+  background-color: transparent;
+  margin-left: 30px;
+}
+.card-list::-webkit-scrollbar { width: 0 !important }
+
+button {
+  color: #0099CC; /* Text color */
+  background: transparent; /* Remove background color */
+  border: 2px solid #0099CC; /* Border thickness, line style, and color */
+  border-radius: 70px; /* Adds curve to border corners */
+  text-decoration: none;
+  text-transform: uppercase; /* Make letters uppercase */
+  border: none;
+  color: gold;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  /* background-color: lightgrey; */
+  background-image: -webkit-linear-gradient(top,#544a7d,#ffd452);
+  color: black;
+  border: 2px solid black;
+}
+
+input {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  border: 2px solid black;
+}
+
+/* input:hover{
+  border: 2px solid black;
+} */
+
+::placeholder{
+  color: white;
+}
+
+select {
+  width: 173px;
+  height: 24px;
+  background-color: transparent;
+  border: 2px solid black;
+  color: white;
 }

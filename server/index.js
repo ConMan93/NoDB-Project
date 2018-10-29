@@ -6,8 +6,10 @@ const port = 3003;
 
 app.use(bodyParser.json());
 
+app.get('/api/deck', dc.getQuery)
 app.get('/api/deck', dc.getDeck)
 app.post('/api/deck', dc.addCard)
+app.delete('/api/deck', dc.resetDeck)
 app.delete('/api/deck/:id', dc.deleteCard)
 app.post('/api/deckname', dc.addDeckName)
 app.put('/api/deckname', dc.updateDeckName)
